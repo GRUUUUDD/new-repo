@@ -14,6 +14,8 @@ urlpatterns = ([
     path('tickets/', include('tickets.urls')),
     path('users/', include('users.urls')),  # Добавили эту строку для лк
     path('meters/', include('meters.urls')),
+    path("health/", health_check),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT))
 
 if settings.DEBUG:
