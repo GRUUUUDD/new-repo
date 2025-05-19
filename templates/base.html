@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ТвойДом - {% block title %}{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+        }
+        
+        .sidebar {
+            background-color: var(--primary-color);
+            color: white;
+            min-height: 100vh;
+            padding: 0;
+            position: fixed;
+            width: 220px;
+        }
+        
+        .sidebar-sticky {
+            position: sticky;
+            top: 0;
+            padding-top: 20px;
+        }
+        
+        .sidebar .nav-link {
+            color: white;
+            padding: 12px 20px;
+            margin: 5px 0;
+            border-radius: 0;
+            transition: all 0.3s;
+        }
+        
+        .sidebar .nav-link:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        .sidebar .nav-link.active {
+            background-color: var(--accent-color);
+            font-weight: bold;
+        }
+        
+        .main-content {
+            margin-left: 220px;
+            padding: 20px;
+            background-color: white;
+            min-height: 100vh;
+        }
+        
+        .card {
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            border: none;
+        }
+        
+        .card-header {
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 10px 10px 0 0 !important;
+            padding: 15px 20px;
+        }
+        
+        .btn-primary {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+        
+        .btn-primary:hover {
+            background-color: #2980b9;
+            border-color: #2980b9;
+        }
+        
+        .btn-danger {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+        }
+        
+        .profile-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .comment-box {
+            border-left: 4px solid var(--secondary-color);
+            padding-left: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .apartment-badge {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Боковая панель -->
+            <div class="col-md-2 sidebar">
+                <div class="sidebar-sticky pt-3">
+                    <div class="text-center mb-4">
+                        <h4>ТвойДом</h4>
+                    </div>
+                    {% if user.is_authenticated %}
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link {% if request.path == '/' %}active{% endif %}" href="/">
+                                    <i class="bi bi-house-door me-2"></i>Главная
+                                </a>
+                            </li>
+                            
+                            <li class="nav-item">
+                                <a class="nav-link {% if 'resident' in request.path or 'specialist' in request.path or 'tszh' in request.path %}active{% endif %}"                                   href="{% url user.get_dashboard_url %}">
+                                    <i class="bi bi-person-circle me-2"></i>Личный кабинет
+                                </a>
+                            </li>
+                            
+                            {% if user.is_resident or user.is_tszh_member %}
+                            <li class="nav-item">
+                                <a class="nav-link {% if 'forum' in request.path %}active{% endif %}" 
+                                   href="{% url 'forum' %}">
+                                    <i class="bi bi-chat-square-text me-2"></i>Форум
+                                </a>
+                            </li>
+                            {% endif %}
+                            
+                            <li class="nav-item">
+                                <a class="nav-link {% if 'tickets' in request.path %}active{% endif %}" 
+                                   href="{% url 'tickets:history' %}">
+                                    <i class="bi bi-ticket-detailed me-2"></i>Мои заявки
+                                </a>
+                            </li>
+                            
+                            <li class="nav-item">
+                                <a class="nav-link {% if 'reference' in request.path %}active{% endif %}"
+                                   href="{% url 'reference' %}">
+                                    <i class="bi bi-info-circle me-2"></i>Справочная
+                                </a>
+                            </li>
+                            
+                            {% if user.is_resident or user.is_tszh_member %}
+                            <li class="nav-item">
+                                <a class="nav-link {% if 'meters' in request.path %}active{% endif %}" 
+                                   href="{% url 'payment_calc' %}">
+                                    <i class="bi bi-calculator me-2"></i>Показания счетчиков
+                                </a>
+                            </li>
+                            {% endif %}
+                        
+                        </ul>
+                    {% endif %}
+                </div>
+            </div>
+            
+            <!-- Основной контент -->
+            <div class="col-md-10 main-content">
+                {% block content %}{% endblock %}
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

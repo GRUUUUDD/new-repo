@@ -1,0 +1,200 @@
+[
+  {
+    "model": "users.customuser",
+    "fields": {
+      "password": "pbkdf2_sha256$870000$1JDq69sC7Z4KgcHrWveGUV$PGVqK4YLCXNjhbBcvvhejq2UabkmmxKM9wT8fM0Oi+Y=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "glava1",
+      "first_name": "Иван",
+      "last_name": "Главный",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2025-04-16T13:16:06.920055+00:00",
+      "role": 1,
+      "phone": "79010000001",
+      "avatar": "",
+      "entrance": 1,
+      "apartment": 1,
+      "floor": 1,
+      "profession": null
+    }
+  },
+  {
+    "model": "users.customuser",
+    "fields": {
+      "password": "pbkdf2_sha256$870000$1JDq69sC7Z4KgcHrWveGUV$PGVqK4YLCXNjhbBcvvhejq2UabkmmxKM9wT8fM0Oi+Y=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "member1",
+      "first_name": "Петр",
+      "last_name": "Членов",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2025-04-16T13:16:06.920083+00:00",
+      "role": 2,
+      "phone": "79020000001",
+      "avatar": "",
+      "entrance": 1,
+      "apartment": 2,
+      "floor": 1,
+      "profession": null
+    }
+  },
+  {
+    "model": "users.customuser",
+    "fields": {
+      "password": "pbkdf2_sha256$870000$1JDq69sC7Z4KgcHrWveGUV$PGVqK4YLCXNjhbBcvvhejq2UabkmmxKM9wT8fM0Oi+Y=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "member2",
+      "first_name": "Ольга",
+      "last_name": "Членова",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2025-04-16T13:16:06.920090+00:00",
+      "role": 2,
+      "phone": "79020000002",
+      "avatar": "",
+      "entrance": 1,
+      "apartment": 3,
+      "floor": 2,
+      "profession": null
+    }
+  },
+  {
+    "model": "users.customuser",
+    "fields": {
+      "password": "pbkdf2_sha256$870000$1JDq69sC7Z4KgcHrWveGUV$PGVqK4YLCXNjhbBcvvhejq2UabkmmxKM9wT8fM0Oi+Y=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "zhilec1",
+      "first_name": "Анна",
+      "last_name": "Жильцова",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2025-04-16T13:16:06.920094+00:00",
+      "role": 3,
+      "phone": "79030000001",
+      "avatar": "",
+      "entrance": 1,
+      "apartment": 10,
+      "floor": 3,
+      "profession": null
+    }
+  },
+  {
+    "model": "users.customuser",
+    "fields": {
+      "password": "pbkdf2_sha256$870000$1JDq69sC7Z4KgcHrWveGUV$PGVqK4YLCXNjhbBcvvhejq2UabkmmxKM9wT8fM0Oi+Y=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "zhilec2",
+      "first_name": "Олег",
+      "last_name": "Жильцов",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2025-04-16T13:16:06.920097+00:00",
+      "role": 3,
+      "phone": "79030000002",
+      "avatar": "",
+      "entrance": 1,
+      "apartment": 10,
+      "floor": 3,
+      "profession": null
+    }
+  },
+  {
+    "model": "users.customuser",
+    "fields": {
+      "password": "pbkdf2_sha256$870000$1JDq69sC7Z4KgcHrWveGUV$PGVqK4YLCXNjhbBcvvhejq2UabkmmxKM9wT8fM0Oi+Y=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "zhilec3",
+      "first_name": "Мария",
+      "last_name": "Квартирантова",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2025-04-16T13:16:06.920100+00:00",
+      "role": 3,
+      "phone": "79030000003",
+      "avatar": "",
+      "entrance": 1,
+      "apartment": 11,
+      "floor": 3,
+      "profession": null
+    }
+  },
+  {
+    "model": "users.customuser",
+    "fields": {
+      "password": "pbkdf2_sha256$870000$1JDq69sC7Z4KgcHrWveGUV$PGVqK4YLCXNjhbBcvvhejq2UabkmmxKM9wT8fM0Oi+Y=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "santehnik1",
+      "first_name": "Сергей",
+      "last_name": "Трубов",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2025-04-16T13:16:06.920103+00:00",
+      "role": 4,
+      "phone": "79040000001",
+      "avatar": "",
+      "entrance": null,
+      "apartment": null,
+      "floor": null,
+      "profession": "Сантехник"
+    }
+  },
+  {
+    "model": "users.customuser",
+    "fields": {
+      "password": "pbkdf2_sha256$870000$1JDq69sC7Z4KgcHrWveGUV$PGVqK4YLCXNjhbBcvvhejq2UabkmmxKM9wT8fM0Oi+Y=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "electric1",
+      "first_name": "Михаил",
+      "last_name": "Проводов",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2025-04-16T13:16:06.920111+00:00",
+      "role": 4,
+      "phone": "79040000002",
+      "avatar": "",
+      "entrance": null,
+      "apartment": null,
+      "floor": null,
+      "profession": "Электрик"
+    }
+  },
+  {
+    "model": "users.customuser",
+    "fields": {
+      "password": "pbkdf2_sha256$870000$1JDq69sC7Z4KgcHrWveGUV$PGVqK4YLCXNjhbBcvvhejq2UabkmmxKM9wT8fM0Oi+Y=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "uborshik1",
+      "first_name": "Галина",
+      "last_name": "Чистова",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2025-04-16T13:16:06.920114+00:00",
+      "role": 4,
+      "phone": "79040000003",
+      "avatar": "",
+      "entrance": null,
+      "apartment": null,
+      "floor": null,
+      "profession": "Уборщик"
+    }
+  }
+]

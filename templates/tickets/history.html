@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <div class="profile-header">
+        <h2>Мои заявки</h2>
+        <p>
+            {% if user.role == 3 %}
+                История и статус ваших обращений
+            {% else %}
+                Входящие заявки
+            {% endif %}
+        </p>
+    </div>
+
+    <!-- Кнопка "Создать заявку" ТОЛЬКО для жильцов -->
+    {% if user.role == 3 %}
+    <div class="d-flex justify-content-between mb-4">
+        <h4>История заявок</h4>
+        <a href="{% url 'tickets:create' %}" class="btn btn-primary">
+            <i class="bi bi-plus-circle me-2"></i>Создать заявку
+        </a>
+    </div>
+    {% endif %}
+
+    <div class="card">
+        <div class="card-body">
+            {% if tickets %}
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>№</th>
+                            <th>Дата</th>
+                            {% if user.role != 3 %}<th>От кого</th>{% endif %}
+                            <th>{% if user.role == 3 %}Кому{% else %}Описание{% endif %}</th>
+                            <th>Статус</th>
+                            <th>Действия</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for ticket in tickets %}
+                        <tr>
+                            <td>{{ ticket.id }}</td>
+                            <td>{{ ticket.created_at|date:"d.m.Y" }}</td>
+
+                            <!-- Для получателей показываем отправителя -->
+                            {% if user.role != 3 %}
+                            <td>{{ ticket.author.get_full_name }}</td>
+                            {% endif %}
+
+                            <td>
+                                {% if user.role == 3 %}
+                                    {{ ticket.receiver.get_full_name }}
+                                {% else %}
+                                    {{ ticket.description|truncatechars:50 }}
+                                {% endif %}
+                            </td>
+
+                            <td>
+                                {% if ticket.status == 'open' %}
+                                <span class="badge bg-warning text-dark">В обработке</span>
+                                {% elif ticket.status == 'accepted' %}
+                                <span class="badge bg-primary">Принято</span>
+                                {% else %}
+                                <span class="badge bg-success">Завершено</span>
+                                {% endif %}
+                            </td>
+
+                            <!-- Новый блок с кнопками действий -->
+                            <td>
+                                {% if user.role != 3 %}
+                                <div class="btn-group">
+                                    <a href="{% url 'tickets:detail' ticket.id %}"
+                                       class="btn btn-sm btn-outline-primary"
+                                       title="Подробнее">
+                                        <i class="bi bi-eye"></i>
+                                    </a>
+                                    <a href="{% url 'tickets:update_status' ticket.id 'accepted' %}"
+                                       class="btn btn-sm btn-success">Принять</a>
+                                    <a href="{% url 'tickets:update_status' ticket.id 'closed' %}"
+                                       class="btn btn-sm btn-danger">Завершить</a>
+                                </div>
+                                {% else %}
+                                <a href="{% url 'tickets:detail' ticket.id %}"
+                                   class="btn btn-sm btn-outline-primary"
+                                   title="Подробнее">
+                                    <i class="bi bi-eye"></i>
+                                </a>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% else %}
+            <div class="text-center py-4">
+                <h5>Заявок нет</h5>
+                {% if user.role == 3 %}
+                <p>Создайте свою первую заявку</p>
+                {% else %}
+                <p>Новых входящих заявок нет</p>
+                {% endif %}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="profile-header">
+        <h2>Создание нового поста</h2>
+        <p>Поделитесь важной информацией с жильцами</p>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                
+                <div class="mb-3">
+                    <label for="id_title" class="form-label">Заголовок</label>
+                    <input type="text" name="title" class="form-control" id="id_title" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="id_content" class="form-label">Содержание</label>
+                    <textarea name="content" class="form-control" id="id_content" rows="5" required></textarea>
+                </div>
+
+                <div class="mb-3">
+                    <label for="id_image" class="form-label">Изображение (необязательно)</label>
+                    <input type="file" name="image" class="form-control" id="id_image">
+                </div>
+
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <a href="{% url 'forum' %}" class="btn btn-secondary me-md-2">
+                        <i class="bi bi-x-circle me-1"></i>Отмена
+                    </a>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="bi bi-send me-1"></i>Опубликовать
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

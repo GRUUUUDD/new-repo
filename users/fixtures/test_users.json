@@ -1,0 +1,77 @@
+[
+{
+  "model": "users.customuser",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$HASH$FULLHASH",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "glava",
+    "first_name": "Иван",
+    "last_name": "Петров",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2025-04-10T00:00:00Z",
+    "role": 1,
+    "phone": "+79000000001",
+    "avatar": "",
+    "entrance": null,
+    "apartment": null,
+    "floor": null,
+    "profession": null,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$HASH$FULLHASH",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "zhilec1",
+    "first_name": "Анна",
+    "last_name": "Сидорова",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-04-10T00:00:00Z",
+    "role": 3,
+    "phone": "+79000000002",
+    "avatar": "",
+    "entrance": "1",
+    "apartment": "25",
+    "floor": "5",
+    "profession": null,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$geZO8YYrCsMgYWhCkcyOqE$iik1ux0y8UYxB3FPQ8in5W9VfU9UDws0h2F+3cdEro0=",
+    "last_login": "2025-04-10T00:46:57.601Z",
+    "is_superuser": true,
+    "username": "vika",
+    "first_name": "",
+    "last_name": "",
+    "email": "vikatac06@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2025-04-10T00:46:16.992Z",
+    "role": 1,
+    "phone": "",
+    "avatar": "",
+    "entrance": null,
+    "apartment": null,
+    "floor": null,
+    "profession": null,
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]

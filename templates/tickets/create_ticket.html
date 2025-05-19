@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <div class="profile-header">
+        <h2>Подача заявки</h2>
+        <p>Опишите проблему, которую необходимо решить</p>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="id_receiver" class="form-label">Кому адресована заявка</label>
+                    {{ form.receiver }}
+                </div>
+                
+                <div class="mb-3">
+                    <label for="id_description" class="form-label">Описание проблемы</label>
+                    {{ form.description }}
+                    <div class="form-text">Опишите проблему максимально подробно</div>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="id_photo" class="form-label">Фотография (если требуется)</label>
+                    {{ form.photo }}
+                </div>
+                
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-primary btn-lg">
+                        <i class="bi bi-send me-2"></i>Отправить заявку
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="profile-header">
+        <h2>Личный кабинет члена ТСЖ</h2>
+        <p>Добро пожаловать, {{ user.get_full_name }}</p>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5><i class="bi bi-person-badge me-2"></i>Основная информация</h5>
+                </div>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <p><strong>ФИО:</strong> {{ user.get_full_name }}</p>
+                        <p><strong>Должность:</strong> {{ user.get_role_display }}</p>
+                        <p><strong>Телефон:</strong> {{ user.phone }}</p>
+                        <p><strong>Адрес:</strong> кв. {{ user.apartment }}, подъезд {{ user.entrance }}</p>
+                    </div>
+                    <button class="btn btn-outline-primary">
+                        <i class="bi bi-pencil me-1"></i>Изменить данные
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5><i class="bi bi-people me-2"></i>Соседи по квартире</h5>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        {% for neighbor in neighbors %}
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            {{ neighbor.get_full_name }}
+                            <span class="badge bg-primary rounded-pill">Кв. {{ neighbor.apartment }}</span>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+
+            {% if user.role == 1 %}
+            <div class="card">
+                <div class="card-header">
+                    <h5><i class="bi bi-gear me-2"></i>Управление ТСЖ</h5>
+                </div>
+                <div class="card-body">
+                    <div class="d-grid gap-2">
+                        <a href="#" class="btn btn-primary">
+                            <i class="bi bi-file-earmark-text me-2"></i>Редактировать документы
+                        </a>
+                        <a href="#" class="btn btn-outline-primary">
+                            <i class="bi bi-currency-exchange me-2"></i>Изменить тарифы
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

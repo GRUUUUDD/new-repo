@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="profile-header">
+        <h2>Справочная информация</h2>
+        <p>Основные документы и контакты ТСЖ</p>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5><i class="bi bi-file-earmark-text me-2"></i>Документы ТСЖ</h5>
+                </div>
+                <div class="card-body">
+                    <div class="list-group">
+                        <a href="/static/documents/ustav.pdf" target="_blank" 
+                           class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                            <span>
+                                <i class="bi bi-file-earmark-pdf text-danger me-2"></i>
+                                Устав ТСЖ
+                            </span>
+                            <i class="bi bi-download"></i>
+                        </a>
+                        
+                        <a href="/static/documents/rules.pdf" target="_blank" 
+                           class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                            <span>
+                                <i class="bi bi-file-earmark-pdf text-danger me-2"></i>
+                                Правила дома
+                            </span>
+                            <i class="bi bi-download"></i>
+                        </a>
+                        
+                        <div class="list-group-item">
+                            <span>
+                                <i class="bi bi-file-earmark-text text-primary me-2"></i>
+                                Обязательства ТСЖ
+                            </span>
+                        </div>
+                        
+                        <div class="list-group-item">
+                            <span>
+                                <i class="bi bi-file-earmark-text text-primary me-2"></i>
+                                Обязательства жильцов
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5><i class="bi bi-telephone me-2"></i>Контакты</h5>
+                </div>
+                <div class="card-body">
+                    <div class="mb-4">
+                        <h6>Председатель правления ТСЖ:</h6>
+                        <p>Волкова Галина Владимировна<br>
+                        Телефон: +7-999-990-99-09<br>
+                        Email: tsg@gmail.com</p>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h6>Члены правления ТСЖ:</h6>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Прохоров Г. (кв. 5) - +7-900-111-22-33</li>
+                            <li class="list-group-item">Белянкина Л. (кв. 12) - +7-900-222-33-44</li>
+                            <li class="list-group-item">Сырцева И. (кв. 7) - +7-900-333-44-55</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h6>Аварийные службы:</h6>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Сантехник: Иванов И. +7-900-444-55-66</li>
+                            <li class="list-group-item">Электрик: Петров П. +7-900-555-66-77</li>
+                            <li class="list-group-item">Уборщик: Сидорова С. +7-900-666-77-88</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

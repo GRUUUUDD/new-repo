@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <div class="card mt-4">
+        <div class="card-header">
+            <h4>Заявка #{{ ticket.id }}</h4>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <p><strong>Дата:</strong> {{ ticket.created_at|date:"d.m.Y H:i" }}</p>
+                    <p><strong>Статус:</strong> 
+                        {% if ticket.status == 'open' %}
+                        <span class="badge bg-warning text-dark">В обработке</span>
+                        {% elif ticket.status == 'accepted' %}
+                        <span class="badge bg-primary">Принято</span>
+                        {% else %}
+                        <span class="badge bg-success">Завершено</span>
+                        {% endif %}
+                    </p>
+                    <p><strong>Отправитель:</strong> {{ ticket.author.get_full_name }}</p>
+                    <p><strong>Получатель:</strong> {{ ticket.receiver.get_full_name }}</p>
+                </div>
+                <div class="col-md-6">
+                    {% if ticket.photo %}
+                    <img src="{{ ticket.photo.url }}" 
+                         class="img-fluid rounded mb-3" 
+                         alt="Фото к заявке">
+                    {% endif %}
+                </div>
+            </div>
+            
+            <div class="mt-4">
+                <h5>Описание:</h5>
+                <p>{{ ticket.description }}</p>
+            </div>
+
+            <!-- Кнопка "Назад" -->
+            <a href="{% url 'tickets:history' %}" class="btn btn-secondary">
+                <i class="bi bi-arrow-left me-2"></i>Назад
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}
