@@ -5,6 +5,7 @@ from users.views import CustomLoginView
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.staticfiles.views import serve
+from users.views import health_check
 
 
 urlpatterns = ([
