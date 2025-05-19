@@ -67,4 +67,4 @@ class ReferenceView(LoginRequiredMixin, TemplateView):
 
 
 def health_check(request):
-    return HttpResponse("OK")
+    return HttpResponse("🟢 It works!")
