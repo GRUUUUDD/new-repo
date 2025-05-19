@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-a-v06tng^buc^gelu3!$0@)idjtkf+!p*7%p9)2)cpo(vz^#l)
 DEBUG = False
 
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['tszh-app.onrender.com']
 
 
 # Application definition
