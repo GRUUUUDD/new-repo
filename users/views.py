@@ -4,6 +4,7 @@ from django.views.generic import TemplateView
 from .mixins import ResidentRequiredMixin, SpecialistRequiredMixin, TSZHMemberRequiredMixin
 from django.urls import reverse_lazy  # Изменили reverse на reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.http import HttpResponse
 
 
 class ResidentDashboardView(ResidentRequiredMixin, TemplateView):
@@ -64,7 +65,6 @@ class ReferenceView(LoginRequiredMixin, TemplateView):
         ]
         return context
 
-from django.http import HttpResponse
 
 def health_check(request):
     return HttpResponse("OK")
